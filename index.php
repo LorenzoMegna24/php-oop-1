@@ -3,11 +3,14 @@
     public $title;
     public $language;
     public $year;
+    public $img;
 
-    function __construct ($_title, $_language, $_year){
+    function __construct ($_title, $_language, $_year, $_img){
       $this->title = $_title;
       $this->language = $_language;
       $this->year = $_year;
+      $this->img = $_img;
+
     }
   };
 
@@ -21,9 +24,9 @@
   // var_dump($spider_man3);
 
   $arrayMovies = [
-    new Movie('Spider-Man, Homecoming', 'Inglese', '2017'),
-    new Movie('Spider-Man, Homecoming', 'Inglese', '2019'),
-    new Movie('Spider-Man, No Way Home', 'Inglese', '2021'),
+    new Movie('Spider-Man, Homecoming', 'Inglese', '2017', 'https://static.posters.cz/image/750webp/47518.webp'),
+    new Movie('Spider-Man, Far From Home', 'Inglese', '2019', 'https://pad.mymovies.it/cinemanews/2019/160103/locandina-ver.jpg'),
+    new Movie('Spider-Man, No Way Home', 'Inglese', '2021', 'https://storage.googleapis.com/gamesurf_media/%2Fmedia%2Fspider_man_no_way_home_8dd767457a.jpg'),
   ];
 ?>
 
@@ -42,7 +45,8 @@
     <div class="row">
       <?php foreach( $arrayMovies as $element ) {?>
       <div class="col-lg-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card">
+        <img src="<?php echo $element->img ?>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><?php echo $element->title ?></h5>
             <h6><?php echo $element->year ?></h6>
